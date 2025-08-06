@@ -5,14 +5,15 @@ interface NFT {
   id: string;
   // Add all other NFT properties here
 }
+
 export default async function ClaimPage({
   searchParams,
 }: {
-  searchParams: { id: string };
+  searchParams: { id: string }
 }) {
   if (!searchParams?.id) {
     return <div>Error: Missing NFT ID</div>;
-}
+  }
 
   try {
     const nft = await prisma.nFT.findUnique({
